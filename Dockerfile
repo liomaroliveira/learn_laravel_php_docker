@@ -33,6 +33,10 @@ RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
+# Install npm
+FROM debian:11-slim
+RUN apt-get update && apt-get install -y npm && apt-get clean
+
 # Set working directory
 WORKDIR /var/www
 
